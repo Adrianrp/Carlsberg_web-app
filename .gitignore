@@ -1,0 +1,7 @@
+node_modules/
+config.codekit
+server/social-config.js
+.codekit-cache/
+.idea
+.meteor/local
+.meteor/db

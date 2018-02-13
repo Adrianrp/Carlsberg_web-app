@@ -1,0 +1,376 @@
+//@import "compass/reset";
+@import "susy";
+@import "breakpoint";
+
+// GLOBAL SETTINGS
+$susy: (
+        columns: 8,
+        global-box-sizing: border-box
+        //debug: (image: show)
+);
+@include border-box-sizing;
+// VARIABLES
+$msgBannerColor: rgba(177, 165, 127, 0.9);
+//  MIXINS
+@mixin cf {
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+
+@font-face {
+  font-family: 'carlsbergbold';
+  src: url('/fonts/carlsberg-bold-webfont.eot');
+  src: url('/fonts/carlsberg-bold-webfont.eot?#iefix') format('embedded-opentype'),
+  /*url('/fonts/carlsberg-bold-webfont.woff2') format('woff2'),*/
+  url('/fonts/carlsberg-bold-webfont.woff') format('woff'),
+  url('/fonts/carlsberg-bold-webfont.ttf') format('truetype'),
+  url('/fonts/carlsberg-bold-webfont.svg#carlsbergbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'carlsbergregular';
+  src: url('/fonts/carlsberg-regular-webfont.eot');
+  src: url('/fonts/carlsberg-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  /*url('/fonts/carlsberg-regular-webfont.woff2') format('woff2'),*/
+  url('/fonts/carlsberg-regular-webfont.woff') format('woff'),
+  url('/fonts/carlsberg-regular-webfont.ttf') format('truetype'),
+  url('/fonts/carlsberg-regular-webfont.svg#carlsbergregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+// MEDIA QUERIES SIZES
+$tablet: 600px;
+$desktop: 980px;
+
+body {
+  background-color: #122821;
+}
+
+img {
+  width: 100%;
+}
+h1 {
+  font-size: 2.5em;
+  font-family: 'carlsbergbold';
+}
+h2 {
+  font-family: 'carlsbergbold';
+  font-size: 2em;
+}
+p {
+  margin: 0;
+}
+
+#wrapper {
+  @include container(1170px);
+  padding-left: gutter(7);
+  padding-right: gutter(7);
+  height: 100vh;
+  overflow: hidden;
+  @include cf;
+  font-family: 'carlsbergregular';
+
+  @include breakpoint($tablet) {
+    @include show-grid(9);
+  }
+
+  @include breakpoint($desktop) {
+    @include show-grid(16);
+  }
+}
+
+#page-wrap {
+
+}
+
+.header-container {
+  position: relative;
+  z-index: 99;
+  padding-top: gutter(5);
+  margin-bottom: gutter(3);
+  @include cf;
+  .euro-logo {
+    @include span(3 of 8);
+  }
+  button.info-icon {
+    margin-top: gutter(6);
+    padding-left: 0;
+    padding-right: 0;
+    @include span(1 of 8 last);
+    background: transparent;
+    border: none;
+  }
+}
+
+.main-title-container {
+  @include cf;
+  .main-title {
+    margin-right: gutter(6);
+    margin-left: gutter(6);
+    position: relative;
+    z-index: 100;
+  }
+
+}
+
+.six-pack-container {
+  @include span(8 of 8);
+  margin-top: gutter(3);
+  text-align: center;
+  position: fixed;
+  z-index: 98;
+  bottom: 7%;
+  @include cf;
+  .six-pack img {
+    max-width: 100%;
+  }
+}
+
+.bg-app img {
+  z-index: 1;
+  min-width: 1027px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+}
+
+.bg-spil img {
+  min-height: 100%;
+  min-width: 1027px;
+  position: fixed;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 50%;
+  margin-left: -513px;
+  z-index: 1;
+}
+
+.lights {
+  @include cf;
+  img {
+    position: fixed;
+    z-index: 97;
+    height: auto;
+    width: 100%;
+    min-width: 1027px;
+    min-height: 100%;
+    bottom: -8%;
+    left: 50%;
+    margin-left: -513px;
+
+  }
+}
+
+.footer-container {
+  @include cf;
+  svg {
+    position: fixed;
+    z-index: 9;
+    height: auto;
+    bottom: 2%;
+    max-width: 90%;
+    left: 5%;
+
+  }
+}
+
+/*-------------------------------------------------------------------------------------------------------// CANS PAGE -*/
+.cans-container {
+  @include cf;
+  margin-top: 10%;
+  position: relative;
+  text-align: center;
+  z-index: 100;
+  height: 100vh;
+  @include span(8 of 8);
+  padding-left: gutter(2);
+  padding-right: gutter(2);
+  .can-item {
+    position: relative;
+    @include span(4 of 8);
+    @include cf;
+    box-shadow: 18px 25px 10px 4px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 18px 25px 10px 4px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 18px 25px 10px 4px rgba(0, 0, 0, 0.7);
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    background-color: #000;
+    &:nth-child(2n) {
+      @include last;
+    }
+  }
+}
+
+.can-open, .win-token {
+  display: none;
+}
+.can-closed {
+  cursor: pointer;
+}
+/* CANS Message banners */
+.msg-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  z-index: 199;
+}
+.msg-container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  padding: gutter(8);
+  width: 100%;
+  background-color: $msgBannerColor;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+   p{
+     font-size: 1.3em;
+     margin-bottom: 10px;
+   }
+}
+
+/*------------------------------------------------------------------------------------------------------- CANS PAGE //-*/
+
+/*---------------------------------------------------------------------------------------------------------// SPLASH  -*/
+.splash-container {
+  position: absolute;
+  z-index: 101;
+  width: 171%;
+  height: auto;
+  top: -91%;
+  left: -63%;
+  display: none;
+
+  .splash-item1, .splash-item2, .splash-item3 {
+    display: none;
+  }
+}
+.drops {
+  position: absolute;
+  z-index: 1;
+  width: 200%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  display: none;
+}
+
+/*---------------------------------------------------------------------------------------------------------- SPLASH //-*/
+
+/*-------------------------------------------------------------------------------------------------------// FACEBOOK  -*/
+.fb-login-container {
+  @include span(8 of 8);
+  position: relative;
+  z-index: 999;
+  background-color: #3b5998;
+  margin-top: gutter(1);
+  border: 1px solid #3b4b6d;
+
+  .fb-logo {
+    @include span(1 of 8);
+    padding-top: gutter(8);
+  }
+
+  .fb-login-btn {
+    @include span(7 of 8 last);
+    background-color: #3b5998;
+    padding-top: gutter(6);
+    padding-bottom: gutter(6);
+    padding-left: gutter(3);
+    padding-right: gutter(3);
+    color: #fff;
+    border: 0px;
+    text-align: left;
+    font-size: 1em;
+    border-left: 1px solid #3b4b6d;
+  }
+}
+.wait-msg {
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+/*------------------------------------------------------------------------------------------------------- FACEBOOK  //-*/
+
+/*----------------------------------------------------------------------------------------------------------// MODAL  -*/
+.modal-content {
+  color: #fff;
+  background-color: #009a3c;
+  background-color: rgba(0, 155, 62, 0.9);
+  font-family: 'carlsbergregular';
+}
+
+.modal-container {
+  h3, h4, .subtitle {
+    font-family: 'carlsbergbold';
+  }
+
+  .close {
+    width: 10%;
+    opacity: 0.4;
+  }
+
+  .modal-tekst {
+    float: left;
+    width: 60%;
+    margin-top: 40px;
+  }
+  .modal-img {
+    float: right;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 36%;
+  }
+}
+.modal-header, .modal-body, .modal-footer {
+  border-bottom: none;
+  border-top: none;
+}
+.form-group {
+  margin-bottom: 0;
+}
+.btn-primary {
+  background-color: #000000;
+  border-color: #302e30;
+
+  &:hover {
+    background-color: #3a3939;
+    border-color: #161515;
+  }
+}
+.form-control {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.rules-text {
+  overflow: auto;
+  max-height: 500px;
+  padding-right: 5px;
+}
+/*---------------------------------------------------------------------------------------------------------- MODAL  //-*/

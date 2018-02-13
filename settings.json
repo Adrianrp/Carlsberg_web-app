@@ -1,0 +1,7 @@
+{
+  "galaxy.meteor.com": {
+     "env": {
+       "MONGO_URL": "mongodb://carlsberg_user:nubifago@ds127126.mlab.com:27126/carlsberg"
+     }
+   }
+}

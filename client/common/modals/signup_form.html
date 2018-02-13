@@ -1,0 +1,17 @@
+<template name="signUpForm">
+    <div id="form-container" class="form-container">
+        <form>
+            {{#if currentUser}}
+                <div class="form-group">
+                    <label for="name"></label>
+                    <input type="text" class="form-control" id="fb_name" placeholder="Name" value="{{currentUser.services.facebook.name}}">
+                </div>
+                <div class="form-group">
+                    <label for="email"></label>
+                    <input type="email" class="form-control" id="fb_email" placeholder="Email" value="{{currentUser.services.facebook.email}}">
+                </div>
+            {{/if}}
+        </form>
+    </div>
+</template>
+

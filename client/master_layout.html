@@ -1,0 +1,13 @@
+<body>
+{{renderPage}}
+</body>
+<template name="masterLayout">
+    <div id="wrapper">
+        <div id="page-wrap">
+            {{> modalSignUp}}
+            {{> header}}
+            {{>Template.dynamic template=content}}
+        </div>
+        {{> footer}}
+    </div>
+</template>

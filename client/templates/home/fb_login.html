@@ -1,0 +1,25 @@
+<template name="fbLogin">
+    <div class="fb-login-container">
+        {{#if currentUser}}
+            <div class="wait-msg">
+                <h3>Beklæger {{currentUser.services.facebook.name}}</h3>
+                <p>Du skal vente lidt mere før du kan spille igen</p>
+            </div>
+        {{else}}
+            <div>
+                <svg class="fb-logo" id="b1bc8d0b-22dd-4df6-840d-80d8e0af2bc7" data-name="Layer 1"
+                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 189.72 222.72"><title>F_icon</title>
+                    <path id="10cb934c-4a00-45c5-9f09-59c1ee46aecd" data-name="Blue"
+                          d="M262.3,262.31V39.59H72.59V262.31H262.3Z" transform="translate(-72.59 -39.59)"
+                          style="fill:#3c5a99"/>
+                    <path id="059284b6-5a8f-4355-9055-e6d28ab2fbbc" data-name="f"
+                          d="M182.41,262.31V162.5h33.5l5-38.9H182.41V98.78c0-11.26,3.13-18.93,19.27-18.93h20.6V45a275.33,275.33,0,0,0-30-1.53c-29.7,0-50,18.13-50,51.41v28.68H108.66v38.9h33.58v99.8h40.17Z"
+                          transform="translate(-72.59 -39.59)" style="fill:#fff"/>
+                </svg>
+                <button class="fb-login-js fb-login-btn">Login med Facebook, så vi er sikker på, at du er over 18år
+                </button>
+            </div>
+
+        {{/if}}
+    </div>
+</template>
